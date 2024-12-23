@@ -21,14 +21,13 @@ import data from "./data/data.json";
 function App() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
-  const [showChat, setShowChat] = useState(false); // State to handle Chat-AI visibility
+  const [showChat, setShowChat] = useState(false);
 
-  // Function to handle API call
   async function generateAnswer() {
     setAnswer("Loading...");
     try {
       const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyCCnG7o77XlEfuDREEKpfTcQoA-kA8CnP8",
+        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY",
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
@@ -136,7 +135,7 @@ function App() {
               />
             }
           />
-          <Route path="/gemini" element={<Gemini />} /> {/* Gemini Route */}
+          <Route path="/gemini" element={<Gemini />} />
         </Routes>
 
         <Heading text="PRODUCT REVIEWS" />
