@@ -20,15 +20,19 @@
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5",
     "styled-components": "^4.4.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "gh-pages": "^4.0.0"   
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "react-scripts start"
+    "dev": "react-scripts start",
+    "predeploy": "npm run build",  
+    "deploy": "gh-pages -d build" 
   },
+  "homepage": "https://your-username.github.io/react-full",  
   "eslintConfig": {
     "extends": [
       "react-app",
