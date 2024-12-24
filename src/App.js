@@ -23,11 +23,12 @@ function App() {
   const [answer, setAnswer] = useState("");
   const [showChat, setShowChat] = useState(false);
 
-  async function generateAnswer() {
+  // Function to generate answer from Chat AI
+  const generateAnswer = async () => {
     setAnswer("Loading...");
     try {
       const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY",
+        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY", // Make sure you replace with your actual API key
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
@@ -38,13 +39,13 @@ function App() {
       console.error("Error generating answer:", error);
       setAnswer("An error occurred while generating the answer.");
     }
-  }
+  };
 
   return (
     <>
       {/* Chat-AI Section Toggle Button */}
       <div className="navbar-chat-button">
-        <button onClick={() => setShowChat(!showChat)}>
+        <button onClick={() => setShowChat(prev => !prev)}>
           {showChat ? "Close Chat-AI" : "Open Chat-AI"}
         </button>
       </div>
