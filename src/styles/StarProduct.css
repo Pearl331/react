@@ -1,20 +1,64 @@
-.starProduct{
-  display: flex;
- justify-content: center;
- align-items: center;
- margin: 1vmax auto;
+.starProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vmax auto;
 }
 
-.starProduct>div:last-child{
-  display: flex;
-  flex-wrap: wrap;
-  width: 46%;
+.starProduct > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    width: 46%;
 }
 
-.starProduct img{
-  transition: all 0.5s;
+/* Default image styling */
+.starProduct img {
+    transition: all 0.5s;
 }
 
-.starProduct img:hover{
-  box-shadow: 6px 6px 15px rgba(53, 53, 53, 0.363);
-}  
+/* Hover effect for image */
+.starProduct img:hover {
+    box-shadow: 6px 6px 15px rgba(53, 53, 53, 0.363);
+}
+
+/* Responsive styles */
+
+/* For mobile screens (max-width: 600px) */
+@media (max-width: 600px) {
+    .starProduct {
+        flex-direction: column; /* Stack the items vertically on small screens */
+        margin: 2vmax 0;
+    }
+    
+    .starProduct > div:last-child {
+        width: 100%; /* Make the last div full-width */
+        justify-content: center;
+        margin-top: 2vmax; /* Add some space between elements */
+    }
+
+    /* For images on mobile */
+    .starProduct img {
+        width: 100%; /* Ensure images fit within the container */
+        max-width: 100%; /* Prevent images from overflowing */
+    }
+}
+
+/* For tablets and small laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .starProduct > div:last-child {
+        width: 50%; /* Set the width to 50% for a more compact layout */
+    }
+
+    /* For images on tablets */
+    .starProduct img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* For larger screens (laptop and above) */
+@media (min-width: 1025px) {
+    .starProduct > div:last-child {
+        width: 46%; /* Keep the original width on larger screens */
+    }
+}
