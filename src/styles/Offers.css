@@ -1,79 +1,88 @@
-/* Container for offers */
+
+
+
+ /* Container for offers */
 .offersSection {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  flex-wrap: wrap; /* Allow items to wrap to new rows */
+  justify-content: center; /* Center the images horizontally */
+  align-items: center; /* Align items vertically */
   padding: 1vmax;
+  gap: 2vmax; /* Consistent space between images */
 }
 
 /* Styling for each offer image */
 .offersSection .offerItem {
-  margin: 0 1vmax;
-  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5vmax; /* Reduce the space between items */
+  transition: all 0.3s ease;
+}
+
+/* Styling for the image */
+.offersSection .offerItem img {
+  width: 100%; /* Images should take full width of their container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  max-width: 250px; /* Ensure images don't stretch too wide */
+  object-fit: cover; /* Ensure images cover the container without stretching */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
 /* Hover effect for images */
-.offersSection .offerItem img {
-  transition: all 0.5s;
-  width: 100%; /* Make images responsive */
-  max-width: 300px; /* Limit max width to prevent stretching */
-  height: auto; /* Maintain aspect ratio */
-}
-
 .offersSection .offerItem img:hover {
   box-shadow: 6px 6px 15px rgba(53, 53, 53, 0.363);
 }
 
-/* Media Queries for Responsiveness */
-
 /* Mobile (max-width: 600px) */
 @media (max-width: 600px) {
   .offersSection {
-    flex-direction: column; /* Stack images vertically on mobile */
-    align-items: center; /* Center images */
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center the items */
   }
 
   .offersSection .offerItem {
-    margin: 1vmax 0; /* More margin between items */
+    width: 80%; /* Images take 80% of the screen width */
+    margin-bottom: 1vmax; /* Add space between images */
   }
 
   .offersSection .offerItem img {
-    width: 90%; /* Images take most of the screen width */
-    max-width: none; /* Remove max-width restriction */
+    max-width: 100%; /* Make images responsive */
   }
 }
 
 /* Tablets and Small Laptops (max-width: 1024px) */
 @media (max-width: 1024px) {
   .offersSection {
-    flex-direction: row; /* Display items in a row */
-    justify-content: space-around; /* Distribute items evenly */
+    flex-direction: row; /* Keep images in a row */
+    justify-content: space-evenly; /* Evenly space images */
   }
 
   .offersSection .offerItem {
-    margin: 0.8vmax; /* Slightly less margin */
+    width: 45%; /* Each image takes up 45% of the screen width */
+    margin-bottom: 1vmax; /* Consistent margin between items */
   }
 
   .offersSection .offerItem img {
-    width: 45%; /* Images take up 45% of the screen width */
-    max-width: none;
+    max-width: 100%; /* Images take full width of their container */
   }
 }
 
 /* Large Screens (min-width: 1025px) */
 @media (min-width: 1025px) {
   .offersSection {
-    flex-direction: row; /* Keep items in a row on large screens */
-    justify-content: space-around; /* Space out items evenly */
+    flex-direction: row; /* Keep items in a row */
+    justify-content: space-between; /* Evenly space images */
   }
 
   .offersSection .offerItem {
-    margin: 1vmax; /* Regular margin for items */
+    width: 30%; /* Images take up 30% of the screen width */
+    margin-bottom: 2vmax; /* Consistent margin between images */
   }
 
   .offersSection .offerItem img {
-    width: 30%; /* Images take up 30% of the container width */
-    max-width: 300px; /* Ensure images don't get too large */
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
   }
 }
