@@ -24,7 +24,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 300px;
+  width: 300px;  /* Default width */
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -78,4 +78,98 @@
   color: #212529;
 }
 
+/* Media Queries for Responsiveness */
 
+/* Mobile and Small Screens (phones, up to 480px wide) */
+@media (max-width: 480px) {
+  .navbar-chat-button {
+    top: 20px; /* Reduce top space */
+    right: 10px; /* Reduce right space */
+  }
+
+  .chat-section {
+    width: 85%; /* Reduce the width to fit better on small screens */
+    bottom: 10px; /* Slightly reduce bottom space */
+    padding: 15px; /* Reduce padding */
+  }
+
+  .chat-section h1 {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .chat-section textarea {
+    height: 80px; /* Adjust textarea height */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .chat-section button {
+    padding: 8px 15px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .chat-section pre {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+/* Medium Screens (tablets, up to 768px wide) */
+@media (max-width: 768px) {
+  .navbar-chat-button {
+    top: 30px;
+    right: 15px;
+  }
+
+  .chat-section {
+    width: 75%; /* Make the chat box a bit bigger */
+    bottom: 15px; /* Adjust the bottom margin */
+  }
+
+  .chat-section h1 {
+    font-size: 1.3rem;
+  }
+
+  .chat-section textarea {
+    height: 90px;
+    font-size: 15px;
+  }
+
+  .chat-section button {
+    padding: 9px 18px;
+    font-size: 15px;
+  }
+
+  .chat-section pre {
+    font-size: 13px;
+  }
+}
+
+/* Large Screens (desktops, 1024px wide and above) */
+@media (min-width: 1024px) {
+  .navbar-chat-button {
+    top: 50px;
+    right: 20px;
+  }
+
+  .chat-section {
+    width: 300px; /* Default width for larger screens */
+    bottom: 20px;
+  }
+
+  .chat-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .chat-section textarea {
+    height: 100px;
+    font-size: 16px;
+  }
+
+  .chat-section button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .chat-section pre {
+    font-size: 14px;
+  }
+}
