@@ -6,7 +6,7 @@ const PreNavbar = () => {
   const cartIcon = <FaShoppingCart />;
 
   return (
-    <div className="PreNav">  {/* Correct class name */}
+    <div className="PreNav">
       <div>
         <a href="https://www.mi.com/in/">MI INDIA</a> <span>|</span>
         <a href="https://in.event.mi.com/in/install-mi-store">GET MI STORE APP</a> <span>|</span>
@@ -23,5 +23,6 @@ const PreNavbar = () => {
 };
 
 export default PreNavbar;
+
 
 
