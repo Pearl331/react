@@ -1,13 +1,12 @@
-/* Basic Navbar Styles */
 .nav {
   z-index: 1000;
   background-color: white;
   padding: 1vmax;
   display: flex;
-  justify-content: space-between; /* Space between logo, links, and search */
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(43, 43, 43, 0.137);
-  flex-wrap: wrap; /* Ensure the navbar content wraps on small screens */
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -28,7 +27,6 @@
   transform: translateX(0);
 }
 
-/* Navigation Links */
 .navlinks-container {
   display: flex;
   flex-wrap: wrap;
@@ -49,7 +47,6 @@
   text-decoration: none;
 }
 
-/* Search Box */
 .searchbox {
   position: relative;
   margin-left: auto;
@@ -65,23 +62,16 @@
   font-weight: 100;
 }
 
-/* Media Queries for Responsiveness */
-
-/* Mobile (max-width: 600px) */
+/* Mobile Responsiveness */
 @media (max-width: 600px) {
   .nav {
-    padding: 2vmax 1vmax; /* Adjust padding on smaller screens */
-    flex-direction: column; /* Stack the elements vertically */
-    align-items: flex-start;
+    flex-direction: column;
+    padding: 2vmax 1vmax;
   }
 
   .logo {
     margin-bottom: 1vmax;
     width: 50px;
-  }
-
-  #logoImage {
-    transform: translateX(0); /* Keep the logo centered */
   }
 
   .navlinks-container {
@@ -91,32 +81,30 @@
   }
 
   .navlinks {
-    font-size: 3.5vw; /* Adjust font size for better readability */
-    margin: 1vmax 0; /* Adjust spacing */
+    font-size: 3.5vw;
+    margin: 1vmax 0;
   }
 
   .searchbox {
-    margin-top: 1.5vmax; /* Add spacing above search box */
-    width: 100%; /* Make the search box take full width */
+    margin-top: 1.5vmax;
+    width: 100%;
   }
 
   .searchbox > input {
-    width: 80%; /* Adjust width to fit mobile screens */
+    width: 80%;
     font-size: 3.5vw;
   }
 }
 
-/* Tablets and Small Laptops (max-width: 1024px) */
 @media (max-width: 1024px) {
   .nav {
-    padding: 2vmax 2vmax; /* Adjust padding */
     flex-direction: column;
-    align-items: flex-start;
+    padding: 2vmax 2vmax;
   }
 
   .logo {
     margin-bottom: 1vmax;
-    width: 55px; /* Adjust the size of the logo */
+    width: 55px;
   }
 
   .navlinks-container {
@@ -134,11 +122,9 @@
   }
 }
 
-/* Large Screens (min-width: 1025px) */
 @media (min-width: 1025px) {
   .nav {
-    padding: 1vmax;
-    flex-direction: row; /* Align items horizontally */
+    flex-direction: row;
     justify-content: space-between;
   }
 
