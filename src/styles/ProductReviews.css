@@ -1,7 +1,29 @@
-
-.ProductReviews{
+/* ProductReviews.css */
+.ProductReviews {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping of cards */
   width: 90vw;
   margin: auto;
   justify-content: center;
+  gap: 20px; /* Space between cards */
+}
+
+.ProductReviews .ProductReviewCard {
+  flex: 1 1 100%; /* Full width by default */
+  max-width: 400px; /* Set a max width for each card */
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  /* For tablet and larger screens */
+  .ProductReviews .ProductReviewCard {
+    flex: 1 1 45%; /* 2 cards per row */
+  }
+}
+
+@media (min-width: 900px) {
+  /* For desktop and larger screens */
+  .ProductReviews .ProductReviewCard {
+    flex: 1 1 30%; /* 3 cards per row */
+  }
 }
