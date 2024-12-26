@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
+import "../styles/ProductReviewCard.css";
 
-import "../styles/ProductReviewCard.css"
-
-const ProductReviewCard = ({image,index,price,name,review}) => {
+const ProductReviewCard = ({ image, index, price, name, review }) => {
     return (
         <div className="ProductReviewCard">
             <img src={image} alt={`${index} review`} />
@@ -10,7 +9,7 @@ const ProductReviewCard = ({image,index,price,name,review}) => {
             <span>{name}</span> 
             <b>{price}</b> 
         </div>
-    )
-}
+    );
+};
 
-export default ProductReviewCard
+export default ProductReviewCard;
