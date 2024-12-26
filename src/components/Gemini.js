@@ -4,22 +4,22 @@ import axios from "axios";
 function Gemini() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
-  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  const [screenSize, setScreenSize] = useState(window.innerWidth); // Track screen size
 
   // Function to handle window resizing and update screen size state
   const handleResize = () => {
     setScreenSize(window.innerWidth);
   };
 
-  // Hook to handle resize events on screen size change
+  // Hook to handle resize events
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); // Add event listener on mount
 
-    // Cleanup on component unmount
+    // Cleanup the event listener when component is unmounted
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, []); // Empty dependency array to run once on mount
 
   // Adjust textarea height based on screen size
   const getTextareaHeight = () => {
@@ -39,15 +39,15 @@ function Gemini() {
     try {
       // Gemini API request
       const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAezRLFpfqszcvps707mdlBVbbVk2c_F5I",
+        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAezRLFpfqszcvps707mdlBVbbVk2c_F5I", // Replace with actual API key
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
         },
       });
-      
+
       // Set the answer
-      setAnswer(response["data"]["candidates"][0]["content"]["parts"][0]["text"]);
+      setAnswer(response.data.candidates[0].content.parts[0].text);
     } catch (error) {
       console.error("Error generating answer:", error);
       setAnswer("An error occurred.");
