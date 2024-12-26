@@ -1,21 +1,76 @@
-.heading{
+/* Base styles for Heading component */
+.heading {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  text-align: center;
+  margin: 20px 0;
+  padding: 0 20px;
+  position: relative;
 }
 
-
-.heading div{
+.heading div {
   background-color: rgba(39, 39, 39, 0.274);
   height: 1px;
-  width: 30vw;
+  width: 30vw; /* 30% of the viewport width */
 }
 
-.heading p{
+/* Heading Text Styles */
+.heading p {
   margin: 3vmax;
   color: rgb(77, 77, 77);
-  font-size: 2.5vmax;
-  font-family:   Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2.5vmax; /* Adjust font size based on the viewport */
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 100;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile and Small Screens (phones, up to 480px wide) */
+@media (max-width: 480px) {
+  .heading {
+    flex-direction: column; /* Stack the elements vertically */
+  }
+
+  .heading div {
+    width: 80vw;  /* Increase the width of the dividers for smaller screens */
+    margin-bottom: 10px;  /* Add some spacing below the divider */
+  }
+
+  .heading p {
+    font-size: 5vw; /* Use viewport width to scale text appropriately */
+    margin: 5vw; /* Increase margin for better spacing */
+  }
+}
+
+/* Medium Screens (tablets, up to 768px wide) */
+@media (max-width: 768px) {
+  .heading {
+    flex-direction: column; /* Stack the elements vertically */
+  }
+
+  .heading div {
+    width: 70vw; /* Adjust divider width for tablets */
+    margin-bottom: 10px;  /* Add some spacing below the divider */
+  }
+
+  .heading p {
+    font-size: 4vw; /* Slightly smaller font size for tablets */
+  }
+}
+
+/* Large Screens (desktops, 1024px wide and above) */
+@media (min-width: 1024px) {
+  .heading {
+    flex-direction: row; /* Align elements horizontally on larger screens */
+  }
+
+  .heading div {
+    width: 30vw; /* Default divider width for larger screens */
+  }
+
+  .heading p {
+    font-size: 2.5vmax; /* Use a fixed font size for larger screens */
+    margin: 3vmax; /* Default margin */
+  }
 }
