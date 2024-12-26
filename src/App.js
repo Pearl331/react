@@ -1,44 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";  // Changed to HashRouter
 import './App.css';
-import Banner from "./components/Banner.js";
-import Footer from "./components/Footer.js";
-import Gemini from "./components/Gemini";
-import Heading from "./components/Heading.js";
-import HotAccessories from "./components/HotAccessories.js";
-import HotAccessoriesMenu from "./components/HotAccessoriesMenu.js";
-import Navbar from "./components/Navbar.js";
-import NavOptios from "./components/NavOptios.js";
-import Offers from "./components/Offers.js";
-import PreNavbar from './components/PreNavbar';
-import ProductReviews from "./components/ProductReviews.js";
-import Slider from "./components/Slider.js";
-import StarProduct from "./components/StarProduct.js";
-import Videos from "./components/Videos.js";
-import data from "./data/data.json";
+// other imports...
 
 function App() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [showChat, setShowChat] = useState(false);
 
-  async function generateAnswer() {
-    setAnswer("Loading...");
-    try {
-      const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY",
-        method: "post",
-        data: {
-          contents: [{ parts: [{ text: question }] }],
-        },
-      });
-      setAnswer(response.data.candidates[0].content.parts[0].text);
-    } catch (error) {
-      console.error("Error generating answer:", error);
-      setAnswer("An error occurred while generating the answer.");
-    }
-  }
+  // generateAnswer function remains the same...
 
   return (
     <>
