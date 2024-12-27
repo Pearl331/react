@@ -1,129 +1,190 @@
-/* Global Styles */
+/* General reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
 }
 
-/* PreFooter Styles */
-.PreFooter,
-.PreFooter2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3vmax;
-    background-color: rgb(28, 28, 28) !important;
-    color: white;
-    flex-wrap: wrap;
+/* Ensure PreFooter has the correct background color */
+.PreFooter, .PreFooter2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vmax;
+  background-color: rgb(28, 28, 28) !important; /* Force background color */
+  color: rgb(197, 197, 197);
 }
 
 .PreFooter2 > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  padding: 1vmax;
+  font-size: 1.1vmax;
 }
 
+/* Prefooter content */
 .PreFooter > div {
-    width: 30%;
+  font-size: 1.2vmax;
+}
+
+.PreFooter > div > a {
+  color: rgb(197, 197, 197);
+  text-decoration: none;
+}
+
+.PreFooter > div > a:hover {
+  color: white;
+}
+
+/* Styling for button in PreFooter */
+.PreFooter button {
+  background-color: rgb(87, 87, 87);
+  border: none;
+  color: white;
+  padding: 1vmax 2vmax;
+  cursor: pointer;
+}
+
+.PreFooter button:hover {
+  background-color: rgb(116, 116, 116);
+}
+
+/* Bottom section (final footer area) */
+.PreFooter2 {
+  flex-direction: column;
+  align-items: center;
 }
 
 .PreFooter2 > div {
-    margin-right: 2vmax;
+  margin-bottom: 1vmax;
 }
 
-/* Footer Styles */
+.PreFooter2 > div > a {
+  font-size: 1.1vmax;
+  color: rgb(197, 197, 197);
+  text-decoration: none;
+}
+
+.PreFooter2 > div > a:hover {
+  color: white;
+}
+
+/* Footer container */
 .footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 3vmax;
-    padding: 3vmax;
-    background-color: black;
-    color: white;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+  padding: 4.5vmax;
+  background-color: rgb(37, 37, 37); /* Footer background black */
+  color: rgb(197, 197, 197);
+  gap: 2vmax;
+}
+
+/* Adjust for tablet screens */
+@media (max-width: 1024px) {
+  .footer {
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columns on tablets */
+    padding: 4vmax;
+  }
+}
+
+/* Adjust for smaller screens (mobile) */
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+    padding: 4vmax;
+  }
+
+  .footer > div > a {
+    font-size: 1.2vmax;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    grid-template-columns: 1fr; /* Single column layout on mobile */
+    padding: 4vmax;
+  }
+
+  .footer > div > a {
+    font-size: 1.5vmax;
+    margin: 1vmax 0;
+  }
+
+  .footer > div:last-child > div {
+    width: 100%;
+    margin: 1vmax 0;
+  }
+
+  .footer > div:last-child > button {
+    width: 100%;
+    font-size: 1.5vmax;
+  }
+
+  .footerBorder > div {
+    width: 100%;
+    padding: 1.5vmax;
+    font-size: 1.2vmax;
+  }
+
+  .PreFooter, .PreFooter2 {
+    flex-direction: column;
+    padding: 2vmax;
+    background-color: rgb(28, 28, 28) !important; /* Force background color */
+  }
+
+  .PreFooter2 > div {
+    margin-bottom: 2vmax;
+  }
+}
+
+/* Styling the sections inside footer */
+.footer > div {
+  margin: 1vmax;
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align text properly */
 }
 
 .footer > div > a {
-    display: block;
-    margin: 0.5vmax 0;
-    color: white;
-    text-decoration: none;
-    font-size: 1.4vmax;
+  color: rgb(197, 197, 197);
+  font-size: 1vmax;
+  text-decoration: none;
+  margin: 0.6vmax 0;
 }
 
 .footer > div > a:hover {
-    text-decoration: underline;
+  color: white;
 }
 
-/* Footer Button */
-.footer > div:last-child > button {
-    padding: 1vmax 2vmax;
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    font-size: 1.2vmax;
-    cursor: pointer;
-    margin-top: 2vmax;
+/* Styling for Footer Borders */
+.footerBorder {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vmax;
+  padding: 1vmax;
+  background-color: rgb(37, 37, 37); /* Footer background black */
+  color: rgb(197, 197, 197);
 }
 
-.footer > div:last-child > button:hover {
-    background-color: #005f6a;
+.footerBorder > div {
+  font-size: 1vmax;
 }
 
-/* Media Queries for Responsiveness */
-
-/* Tablets (Max Width: 1024px) */
-@media (max-width: 1024px) {
-    .footer {
-        grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columns */
-    }
-
-    .PreFooter, .PreFooter2 {
-        padding: 2vmax;
-    }
+.footerBorder > div > p {
+  margin-bottom: 1vmax;
 }
 
-/* Medium Screens (Max Width: 768px) */
-@media (max-width: 768px) {
-    .footer {
-        grid-template-columns: 1fr 1fr; /* 2 columns */
-    }
-
-    .footer > div > a {
-        font-size: 1.2vmax;
-    }
-
-    .footer > div:last-child > button {
-        font-size: 1.3vmax;
-    }
+.footerBorder > div > button {
+  font-size: 1.2vmax;
+  padding: 0.5vmax 1vmax;
+  background-color: #555;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-/* Small Screens (Max Width: 480px) */
-@media (max-width: 480px) {
-    .footer {
-        grid-template-columns: 1fr; /* Single column on mobile */
-    }
-
-    .footer > div > a {
-        font-size: 1.5vmax;
-    }
-
-    .footer > div:last-child > div {
-        width: 100%;
-        margin: 1vmax 0;
-    }
-
-    .footer > div:last-child > button {
-        width: 100%;
-        font-size: 1.5vmax;
-    }
-
-    /* PreFooter Responsiveness */
-    .PreFooter, .PreFooter2 {
-        flex-direction: column;
-        padding: 2vmax;
-    }
-
-    .PreFooter2 > div {
-        margin-bottom: 2vmax;
-    }
+.footerBorder > div > button:hover {
+  background-color: #888;
 }
