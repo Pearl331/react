@@ -1,9 +1,11 @@
+/* General footer styling */
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
   padding: 4.5vmax;
   background-color: rgb(37, 37, 37);
   color: rgb(197, 197, 197);
+  gap: 2vmax; /* Added space between columns */
 }
 
 .footer > div {
@@ -14,10 +16,6 @@
 
 .footer > div:nth-child(2) {
   display: block;
-}
-
-.footer > div:nth-child(2) > a {
-  display: inline-block;
 }
 
 .footer > div > a {
@@ -68,68 +66,95 @@
   font-size: 0.98vmax;
 }
 
-/* MEDIA QUERIES FOR RESPONSIVENESS */
+/* Responsive Design */
 
-@media (max-width: 1200px) {
+/* Tablets and smaller screens */
+@media (max-width: 1024px) {
   .footer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 4vmax;
   }
 
   .footer > div:last-child > div {
-    width: 60%;
-  }
-
-  .footer > div:last-child > button {
-    width: 60%;
-  }
-
-  .footerBorder > div {
-    width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .footer > div:last-child > div {
-    width: 70%;
-  }
-
-  .footer > div:last-child > button {
-    width: 70%;
-  }
-
-  .footerBorder > div {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer {
-    grid-template-columns: 1fr 1fr;
-    padding: 2vmax;
-  }
-
-  .footer > div {
-    font-size: 0.9vmax;
+    width: 100%;
+    margin: 1vmax 0;
   }
 
   .footer > div > a {
-    font-size: 1.1vmax;
-  }
-
-  .footer > div:last-child > div {
-    width: 100%;
+    font-size: 1vmax;
   }
 
   .footer > div:last-child > button {
     width: 100%;
+    font-size: 1vmax;
+  }
+
+  .footerBorder > div {
+    width: 90%;
+  }
+}
+
+/* Mobile screens (small devices) */
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 4vmax;
+  }
+
+  .footer > div:last-child > div {
+    width: 100%;
+    margin: 1vmax 0;
+  }
+
+  .footer > div > a {
+    font-size: 1.2vmax;
+  }
+
+  .footer > div:last-child > button {
+    width: 100%;
+    font-size: 1.2vmax;
+  }
+
+  .footerBorder > div {
+    width: 90%;
+    padding: 1.5vmax;
+  }
+}
+
+/* Mobile Portrait (Very small screens) */
+@media (max-width: 480px) {
+  .footer {
+    grid-template-columns: 1fr;
+    padding: 4vmax;
+  }
+
+  .footer > div > a {
+    font-size: 1.5vmax;
+    margin: 1vmax 0;
+  }
+
+  .footer > div:last-child > div {
+    width: 100%;
+    margin: 1vmax 0;
+  }
+
+  .footer > div:last-child > button {
+    width: 100%;
+    font-size: 1.5vmax;
   }
 
   .footerBorder > div {
     width: 100%;
-    font-size: 0.9vmax;
+    padding: 1.5vmax;
+    font-size: 1.2vmax;
+  }
+
+  .PreFooter, .PreFooter2 {
+    flex-direction: column;
+    padding: 2vmax;
+  }
+
+  .PreFooter2 > div {
+    margin-bottom: 2vmax;
   }
 }
