@@ -28,16 +28,20 @@ function App() {
     setAnswer("Loading...");
     try {
       const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY", // Make sure you replace with your actual API key
+        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyB1NG92-TjJ0SLmwcesCN6h8rLLcPpGGl0", // Make sure you replace with your actual API key
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
         },
       });
+
+      console.log(response.data); // Log the response to see the structure
+
+      // If response is correct, set answer
       setAnswer(response.data.candidates[0].content.parts[0].text);
     } catch (error) {
       console.error("Error generating answer:", error);
-      setAnswer("An error occurred while generating the answer.");
+      setAnswer(`An error occurred: ${error.response ? error.response.data.error.message : error.message}`);
     }
   };
 
