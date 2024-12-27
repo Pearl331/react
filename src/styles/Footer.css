@@ -14,7 +14,7 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
   padding: 4.5vmax;
-  background-color: rgb(37, 37, 37);
+  background-color: rgb(37, 37, 37); /* Footer background black */
   color: rgb(197, 197, 197);
   gap: 2vmax;
 }
@@ -69,6 +69,7 @@ body {
   .PreFooter, .PreFooter2 {
     flex-direction: column;
     padding: 2vmax;
+    background-color: rgb(28, 28, 28); /* Lighter background for PreFooter */
   }
 
   .PreFooter2 > div {
@@ -101,7 +102,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 2vmax;
   padding: 1vmax;
-  background-color: rgb(37, 37, 37);
+  background-color: rgb(37, 37, 37); /* Footer background black */
   color: rgb(197, 197, 197);
 }
 
@@ -131,7 +132,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 3vmax;
-  background-color: rgb(28, 28, 28);
+  background-color: rgb(28, 28, 28); /* Lighter background for PreFooter */
   color: rgb(197, 197, 197);
 }
 
