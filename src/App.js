@@ -1,9 +1,10 @@
+import axios from "axios";
 import { useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
 import Banner from "./components/Banner.js";
 import Footer from "./components/Footer.js";
-import Gemini from "./components/Gemini"; // Importing the Gemini component
+import Gemini from "./components/Gemini";  // Importing the Gemini component
 import Heading from "./components/Heading.js";
 import HotAccessories from "./components/HotAccessories.js";
 import HotAccessoriesMenu from "./components/HotAccessoriesMenu.js";
@@ -187,3 +188,4 @@ function App() {
 }
 
 export default App;
+
