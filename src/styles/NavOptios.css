@@ -1,7 +1,53 @@
-.navOptions{
+/* Base styles for the navOptions container */
+.navOptions {
   display: flex;
   background-color: white;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   padding: 2vmax;
   z-index: 1000;
+  flex-wrap: wrap; /* Allow wrapping of items */
+}
+
+/* Ensure there is a gap between the items */
+.navOptions > div {
+  margin: 1vmax;
+}
+
+/* On small screens, adjust padding and layout */
+@media (max-width: 1024px) {
+  .navOptions {
+    justify-content: space-between;
+    padding: 1vmax;
+  }
+
+  .navOptions > div {
+    width: 45%; /* Each item takes 45% of the container width */
+    margin: 0.5vmax;
+  }
+}
+
+/* On tablets and smaller devices, stack the items vertically */
+@media (max-width: 768px) {
+  .navOptions {
+    justify-content: center;
+    padding: 1.5vmax;
+  }
+
+  .navOptions > div {
+    width: 90%; /* Items take most of the screen width */
+    margin: 0.5vmax;
+  }
+}
+
+/* On very small screens (like mobile devices), display in a single column */
+@media (max-width: 480px) {
+  .navOptions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navOptions > div {
+    width: 100%; /* Full width for each item */
+    margin: 0.5vmax 0;
+  }
 }
