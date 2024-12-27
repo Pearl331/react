@@ -3,12 +3,14 @@
   display: grid;
   grid-template-columns: 5fr 2fr;
   color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 1vmax 0;
 }
 
 .PreNav > div {
-  padding: 0 4vmax;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .PreNav > div > span {
@@ -17,18 +19,9 @@
   font-weight: 100;
 }
 
-.preNav > div svg {
-  fill: rgb(180, 180, 180);
-}
-
-.preNav > div svg:hover {
-  fill: rgb(255, 255, 255);
-}
-
 .PreNav > div > a {
   color: rgb(180, 180, 180);
   font-size: 0.9vmax;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 300;
   margin: 1vmax;
   text-decoration: none;
@@ -38,7 +31,16 @@
   color: white;
 }
 
-/* Media Queries */
+.PreNav > div > svg {
+  fill: rgb(180, 180, 180);
+  margin-right: 0.5vmax;
+}
+
+.PreNav > div > svg:hover {
+  fill: white;
+}
+
+/* Mobile-friendly media queries */
 @media (max-width: 768px) {
   .PreNav {
     grid-template-columns: 1fr;
@@ -50,6 +52,30 @@
   }
 
   .PreNav > div > a {
-    margin: 1vmax 0;
+    margin: 0.8vmax 0;
+    font-size: 1.2rem;
+  }
+
+  .PreNav > div > span {
+    display: none;
+  }
+
+  .PreNav > div > svg {
+    margin-right: 0;
+  }
+}
+
+/* Tablet devices */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .PreNav {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .PreNav > div > a {
+    font-size: 1rem;
+  }
+
+  .PreNav > div > svg {
+    margin-right: 1vmax;
   }
 }
