@@ -1,130 +1,47 @@
-/* General footer styling */
+/* General reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Footer container */
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+  grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
   padding: 4.5vmax;
   background-color: rgb(37, 37, 37);
   color: rgb(197, 197, 197);
-  gap: 2vmax; /* Added space between columns */
+  gap: 2vmax;
 }
 
-.footer > div {
-  margin: 1vmax;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer > div:nth-child(2) {
-  display: block;
-}
-
-.footer > div > a {
-  color: rgb(197, 197, 197);
-  font-size: 1vmax;
-  text-decoration: none;
-  margin: 0.6vmax 0;
-}
-
-.footer > div > a:hover {
-  color: white;
-}
-
-.footer > div:last-child > div {
-  width: 45%;
-  margin: 1vmax 0;
-  font-size: 0.8vmax;
-}
-
-.footer > div:last-child > button {
-  width: 50%;
-  border: 1px solid white;
-  background-color: rgb(37, 37, 37);
-  color: white;
-  padding: 0.6vmax 0;
-  font-size: 0.98vmax;
-  font-weight: 100;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  transition: all 0.5s;
-}
-
-.footer > div:last-child > button:hover {
-  background-color: rgb(248, 244, 244);
-  color: rgb(37, 37, 37);
-}
-
-.footerBorder {
-  background-color: rgb(37, 37, 37);
-  color: white;
-}
-
-.footerBorder > div {
-  border-top: 1px solid rgba(197, 197, 197, 0.185);
-  color: rgb(197, 197, 197);
-  width: 90vmax;
-  margin: auto;
-  padding: 2vmax;
-  font-size: 0.98vmax;
-}
-
-/* Responsive Design */
-
-/* Tablets and smaller screens */
+/* Adjust for tablet screens */
 @media (max-width: 1024px) {
   .footer {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columns on tablets */
     padding: 4vmax;
-  }
-
-  .footer > div:last-child > div {
-    width: 100%;
-    margin: 1vmax 0;
-  }
-
-  .footer > div > a {
-    font-size: 1vmax;
-  }
-
-  .footer > div:last-child > button {
-    width: 100%;
-    font-size: 1vmax;
-  }
-
-  .footerBorder > div {
-    width: 90%;
   }
 }
 
-/* Mobile screens (small devices) */
+/* Adjust for smaller screens (mobile) */
 @media (max-width: 768px) {
   .footer {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
     padding: 4vmax;
-  }
-
-  .footer > div:last-child > div {
-    width: 100%;
-    margin: 1vmax 0;
   }
 
   .footer > div > a {
     font-size: 1.2vmax;
   }
-
-  .footer > div:last-child > button {
-    width: 100%;
-    font-size: 1.2vmax;
-  }
-
-  .footerBorder > div {
-    width: 90%;
-    padding: 1.5vmax;
-  }
 }
 
-/* Mobile Portrait (Very small screens) */
 @media (max-width: 480px) {
   .footer {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column layout on mobile */
     padding: 4vmax;
   }
 
@@ -156,5 +73,139 @@
 
   .PreFooter2 > div {
     margin-bottom: 2vmax;
+  }
+}
+
+/* Styling the sections inside footer */
+.footer > div {
+  margin: 1vmax;
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align text properly */
+}
+
+.footer > div > a {
+  color: rgb(197, 197, 197);
+  font-size: 1vmax;
+  text-decoration: none;
+  margin: 0.6vmax 0;
+}
+
+.footer > div > a:hover {
+  color: white;
+}
+
+/* Styling for Footer Borders */
+.footerBorder {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vmax;
+  padding: 1vmax;
+  background-color: rgb(37, 37, 37);
+  color: rgb(197, 197, 197);
+}
+
+.footerBorder > div {
+  font-size: 1vmax;
+}
+
+.footerBorder > div > p {
+  margin-bottom: 1vmax;
+}
+
+.footerBorder > div > button {
+  font-size: 1.2vmax;
+  padding: 0.5vmax 1vmax;
+  background-color: #555;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.footerBorder > div > button:hover {
+  background-color: #888;
+}
+
+/* Prefooter */
+.PreFooter, .PreFooter2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vmax;
+  background-color: rgb(28, 28, 28);
+  color: rgb(197, 197, 197);
+}
+
+.PreFooter2 > div {
+  flex: 1;
+  padding: 1vmax;
+  font-size: 1.1vmax;
+}
+
+/* Prefooter content */
+.PreFooter > div {
+  font-size: 1.2vmax;
+}
+
+.PreFooter > div > a {
+  color: rgb(197, 197, 197);
+  text-decoration: none;
+}
+
+.PreFooter > div > a:hover {
+  color: white;
+}
+
+/* Styling for button in PreFooter */
+.PreFooter button {
+  background-color: rgb(87, 87, 87);
+  border: none;
+  color: white;
+  padding: 1vmax 2vmax;
+  cursor: pointer;
+}
+
+.PreFooter button:hover {
+  background-color: rgb(116, 116, 116);
+}
+
+/* Bottom section (final footer area) */
+.PreFooter2 {
+  flex-direction: column;
+  align-items: center;
+}
+
+.PreFooter2 > div {
+  margin-bottom: 1vmax;
+}
+
+.PreFooter2 > div > a {
+  font-size: 1.1vmax;
+  color: rgb(197, 197, 197);
+  text-decoration: none;
+}
+
+.PreFooter2 > div > a:hover {
+  color: white;
+}
+
+/* Additional responsiveness for footer on very small screens */
+@media (max-width: 375px) {
+  .footer {
+    padding: 3vmax;
+  }
+
+  .footer > div > a {
+    font-size: 1.2vmax;
+    margin: 1.5vmax 0;
+  }
+
+  .footer > div:last-child > button {
+    width: 100%;
+    font-size: 1.5vmax;
+  }
+
+  .footerBorder {
+    padding: 2vmax;
+    grid-template-columns: 1fr;
   }
 }
