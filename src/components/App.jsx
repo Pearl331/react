@@ -1,46 +1,50 @@
-import axios from "axios";
-import { useState } from "react";
-import "./App.css";
+import React, { useState } from "react";
+import './App.css';
 
 function App() {
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [text, setText] = useState('');
+  const [summary, setSummary] = useState('');
 
-  async function generateAnswer() {
-    setAnswer("loading..");
+  const handleTextChange = (event) => setText(event.target.value);
 
+  const handleSummarize = async () => {
     try {
-      const response = await axios({
-        url: "http://localhost:5000/api/summarize", // Backend server endpoint
-        method: "post",
-        data: {
-          text: question, // User input sent to backend
+      const response = await fetch('/api/summarize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ text }),
       });
 
-      // Response from backend (summarized text)
-      setAnswer(response.data.summary);
+      const data = await response.json();
+      setSummary(data.summary);
     } catch (error) {
-      console.error("Error generating answer:", error);
-      setAnswer("An error occurred.");
+      console.error("Error:", error);
+      setSummary("Failed to generate summary.");
     }
-  }
+  };
 
   return (
-    <>
-      <div className="w-full"> </div>
-      <h1 className="bg-blue-300">CHAT-AI</h1>
-      <textarea
-        className="border rounded w-full"
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-        cols="30"
-        rows="10"
-        placeholder="Ask anything to me"
-      ></textarea>
-      <button onClick={generateAnswer}>Generate Answer</button>
-      <pre>{answer}</pre> {/* Display the answer */}
-    </>
+    <div className="container">
+      <h1>AI Text Summarizer</h1>
+      <div className="flex-container">
+        <div className="flex-item">
+          <textarea
+            value={text}
+            onChange={handleTextChange}
+            placeholder="Enter text to summarize"
+            rows="6"
+            style={{ width: "100%" }}
+          />
+          <button onClick={handleSummarize}>Summarize</button>
+        </div>
+        <div className="flex-item">
+          <h2>Summary:</h2>
+          <p>{summary}</p>
+        </div>
+      </div>
+    </div>
   );
 }
 

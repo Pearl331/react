@@ -1,22 +1,59 @@
-.HotAccessories{
+.HotAccessories {
   display: flex;
   width: 90vw;
   margin: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;  /* Adjust spacing */
 }
 
-.HotAccessories > div:first-child > img{
+.HotAccessories > div:first-child > img {
   cursor: pointer;
   transition: all 0.5s;
   width: 22vw;
+  max-width: 200px; /* Limit max width */
 }
 
-.HotAccessories > div:first-child > img:hover{
+.HotAccessories > div:first-child > img:hover {
   transform: translateY(-0.4vmax);
   box-shadow: 0px 6px 15px rgba(53, 53, 53, 0.363);
-
 }
 
-.HotAccessories > div:last-child{
+.HotAccessories > div:last-child {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 768px) {
+  .HotAccessories {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .HotAccessories > div:first-child > img {
+    width: 50vw;
+    max-width: none; /* Adjust width for smaller screens */
+  }
+
+  .HotAccessories > div:last-child {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .HotAccessories {
+    width: 100%;
+  }
+
+  .HotAccessories > div:first-child > img {
+    width: 70vw;
+  }
+
+  .HotAccessories > div:last-child {
+    justify-content: center;
+  }
+
+  .HotItemCard {
+    width: 80%; /* Make item cards wider on mobile */
+  }
 }

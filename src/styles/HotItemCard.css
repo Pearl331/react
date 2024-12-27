@@ -1,38 +1,61 @@
-.HotItemCard{
+.HotItemCard {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   background-color: white;
   width: 31%;
-  margin:  0.7vmax;
+  margin: 0.7vmax;
   transition: all 0.5s;
   cursor: pointer;
-
+  max-width: 250px; /* Prevent it from growing too large */
 }
 
-.HotItemCard:hover{
+.HotItemCard:hover {
   transform: translateY(-0.4vmax);
   box-shadow: 0px 6px 15px rgba(53, 53, 53, 0.363);
-
 }
 
-
-.HotItemCard > img{
+.HotItemCard > img {
   width: 70%;
-
 }
-
 
 .HotItemCard > p {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: rgb(85, 83, 83);
-
 }
 
-.HotItemCard > span{
+.HotItemCard > span {
   margin: -1vmax 0 1vmax 0;
   color: orangered;
-
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
+@media (max-width: 768px) {
+  .HotItemCard {
+    width: 45%; /* For tablets, take up more width */
+    margin: 2vmax;
+  }
+
+  .HotItemCard > img {
+    width: 80%; /* Larger images for tablets */
+  }
+
+  .HotItemCard > p, .HotItemCard > span {
+    font-size: 1rem; /* Adjust text size for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .HotItemCard {
+    width: 80%; /* On mobile, cards will take up 80% width */
+    margin: 2vmax auto;
+  }
+
+  .HotItemCard > img {
+    width: 90%; /* Make images take more space */
+  }
+
+  .HotItemCard > p, .HotItemCard > span {
+    font-size: 0.9rem; /* Smaller text on mobile */
+  }
 }

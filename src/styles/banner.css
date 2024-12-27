@@ -1,0 +1,78 @@
+/* Basic styling for the banner carousel */
+#bannerImage {
+  object-fit: cover; /* Ensure images cover the entire area */
+  width: 100%; /* Make the images responsive */
+  height: 60vh; /* Ensure the banner images have a fixed height on larger screens */
+}
+
+/* Styling for the carousel caption */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  color: white; /* Text color */
+  padding: 1.5rem;
+  bottom: 20px; /* Position the caption slightly above the bottom */
+  left: 0;
+  right: 0;
+}
+
+.carousel-caption h3 {
+  font-size: 2.5rem; /* Larger font for title */
+  margin-bottom: 0.8rem; /* Space below the title */
+}
+
+.carousel-caption p {
+  font-size: 1.25rem; /* Slightly larger text for description */
+  margin-bottom: 0.5rem; /* Space between description and source */
+}
+
+.carousel-caption u {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Make carousel content smaller on mobile screens */
+@media (max-width: 600px) {
+  #bannerImage {
+    height: 50vh; /* Reduce the height on smaller screens */
+  }
+
+  .carousel-caption {
+    padding: 1rem; /* Less padding on small screens */
+    bottom: 15px; /* Adjust caption position */
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.8rem; /* Smaller font size for title */
+  }
+
+  .carousel-caption p {
+    font-size: 1rem; /* Smaller font for description */
+  }
+
+  .carousel-caption u {
+    font-size: 1rem; /* Slightly smaller 'Read more' link */
+  }
+}
+
+/* Adjust for tablets and small laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  #bannerImage {
+    height: 55vh; /* Adjust height for medium screens */
+  }
+
+  .carousel-caption {
+    padding: 1.2rem;
+  }
+
+  .carousel-caption h3 {
+    font-size: 2.2rem; /* Slightly smaller font size for title */
+  }
+
+  .carousel-caption p {
+    font-size: 1.1rem; /* Smaller text for description */
+  }
+
+  .carousel-caption u {
+    font-size: 1.15rem; /* Adjust the 'Read more' link */
+  }
+}

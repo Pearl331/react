@@ -1,20 +1,88 @@
-.starProduct{
+.starProduct {
   display: flex;
- justify-content: center;
- align-items: center;
- margin: 1vmax auto;
+  justify-content: center;
+  align-items: center;
+  margin: 1vmax auto;
+  flex-wrap: wrap; /* To ensure it wraps when on small screens */
 }
 
-.starProduct>div:last-child{
+.starProduct-item {
+  margin: 1vmax;
+  width: 100%; /* Take full width on smaller screens */
+}
+
+.starProduct-other-items {
   display: flex;
   flex-wrap: wrap;
-  width: 46%;
+  gap: 1vmax; /* Ensure a little space between images */
+  justify-content: space-around; /* Align items in a row */
+  width: 100%;
 }
 
-.starProduct img{
+/* Styling for the images */
+.starProduct img {
   transition: all 0.5s;
+  width: 100%; /* Make images responsive */
+  max-width: 100%; /* Prevent images from overflowing */
+  height: auto; /* Maintain aspect ratio */
 }
 
-.starProduct img:hover{
+/* Hover effect for images */
+.starProduct img:hover {
   box-shadow: 6px 6px 15px rgba(53, 53, 53, 0.363);
+}
+
+/* Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+  .starProduct {
+      flex-direction: column; /* Stack the products vertically */
+      align-items: center; /* Center items */
+  }
+
+  .starProduct-item {
+      width: 90%; /* Take most of the screen width */
+      margin-bottom: 2vmax;
+  }
+
+  .starProduct-other-items {
+      width: 100%;
+      justify-content: center; /* Align items at center for small screens */
+  }
+
+  .starProduct-other-items a {
+      margin: 0 1vmax; /* Adjust space between images */
+  }
+}
+
+/* Tablets and small laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .starProduct-item {
+      width: 48%; /* Use 48% width on medium screens for better alignment */
+  }
+
+  .starProduct-other-items {
+      justify-content: center; /* Center items */
+      width: 100%;
+  }
+
+  .starProduct-other-items a {
+      width: 48%; /* Make images take up 48% width */
+      margin: 1vmax;
+  }
+}
+
+/* Larger screens (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .starProduct-item {
+      width: 46%; /* Use 46% width on larger screens */
+  }
+
+  .starProduct-other-items {
+      width: 46%; /* Keep the layout consistent with larger screen widths */
+      justify-content: space-between; /* Spread out items */
+  }
+
+  .starProduct-other-items a {
+      width: 46%; /* Images will be 46% of the container width */
+  }
 }

@@ -1,15 +1,86 @@
-.offersSection{
+/* Container for offers */
+.offersSection {
   display: flex;
-  justify-content: center; 
-  align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap to new rows */
+  justify-content: center; /* Center the images horizontally */
+  align-items: center; /* Align items vertically */
   padding: 1vmax;
+  gap: 2vmax; /* Consistent space between images */
 }
 
-.offersSection   img{
-  margin: 0 1vmax;
-  transition: all 0.5s;
+/* Styling for each offer image */
+.offersSection .offerItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5vmax; /* Reduce the space between items */
+  transition: all 0.3s ease;
 }
 
-.offersSection   img:hover{
+/* Styling for the image */
+.offersSection .offerItem img {
+  width: 100%; /* Images should take full width of their container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  max-width: 250px; /* Ensure images don't stretch too wide */
+  object-fit: cover; /* Ensure images cover the container without stretching */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for images */
+.offersSection .offerItem img:hover {
   box-shadow: 6px 6px 15px rgba(53, 53, 53, 0.363);
 }
+
+/* Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+  .offersSection {
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center the items */
+  }
+
+  .offersSection .offerItem {
+    width: 80%; /* Images take 80% of the screen width */
+    margin-bottom: 1vmax; /* Add space between images */
+  }
+
+  .offersSection .offerItem img {
+    max-width: 100%; /* Make images responsive */
+  }
+}
+
+/* Tablets and Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .offersSection {
+    flex-direction: row; /* Keep images in a row */
+    justify-content: space-evenly; /* Evenly space images */
+  }
+
+  .offersSection .offerItem {
+    width: 45%; /* Each image takes up 45% of the screen width */
+    margin-bottom: 1vmax; /* Consistent margin between items */
+  }
+
+  .offersSection .offerItem img {
+    max-width: 100%; /* Images take full width of their container */
+  }
+}
+
+/* Large Screens (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .offersSection {
+    flex-direction: row; /* Keep items in a row */
+    justify-content: space-between; /* Evenly space images */
+  }
+
+  .offersSection .offerItem {
+    width: 30%; /* Images take up 30% of the screen width */
+    margin-bottom: 2vmax; /* Consistent margin between images */
+  }
+
+  .offersSection .offerItem img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+

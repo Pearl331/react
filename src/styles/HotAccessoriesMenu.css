@@ -1,18 +1,35 @@
-.HotAccessoriesMenu{
+.HotAccessoriesMenu {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1vmax;
+  margin-bottom: 1vmax; /* Add space at the bottom */
 }
 
-.HotAccessoriesLink{
+.HotAccessoriesLink {
   text-decoration: none;
   color: rgb(94, 94, 94);
   margin: 1vmax;
   padding: 0.5vmax 0;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
 }
 
-.HotAccessoriesLink:hover{
+.HotAccessoriesLink:hover {
   text-decoration: none;
   color: orangered;
   border-bottom: 1px solid orangered;
-} 
+}
+
+@media (max-width: 768px) {
+  .HotAccessoriesLink {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .HotAccessoriesLink {
+    font-size: 0.8rem;
+    margin: 0.5vmax;
+  }
+}
