@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
 import Banner from "./components/Banner.js";
 import Footer from "./components/Footer.js";
-import Gemini from "./components/Gemini"; // Importing the Gemini component
+import Gemini from "./components/Gemini";
 import Heading from "./components/Heading.js";
 import HotAccessories from "./components/HotAccessories.js";
 import HotAccessoriesMenu from "./components/HotAccessoriesMenu.js";
@@ -26,54 +26,64 @@ function App() {
   const generateAnswer = async () => {
     setAnswer("Loading...");
     
-    // Customized responses for website-related questions
-    if (question.toLowerCase().includes("login") || question.toLowerCase().includes("sign in")) {
+    // Handle website-related questions
+    const questionLower = question.toLowerCase();
+
+    // Laptop-related questions
+    if (questionLower.includes("laptop") || questionLower.includes("laptops")) {
+      setAnswer("We have a variety of laptops. Visit our 'Laptop' section to explore different models and choose the one that suits your needs.");
+      return;
+    }
+
+    // Mobile phone-related questions
+    if (questionLower.includes("mobile") || questionLower.includes("phone") || questionLower.includes("smartphone")) {
+      setAnswer("You can browse and buy different mobile phones from our 'Mobile' section. We have various models for you to choose from.");
+      return;
+    }
+
+    // Tablet-related questions
+    if (questionLower.includes("tablet")) {
+      setAnswer("We have a great selection of tablets in our 'Tablet' section. Check them out for more details.");
+      return;
+    }
+
+    // Hot Accessories related questions
+    if (questionLower.includes("accessories")) {
+      setAnswer("You can find a wide range of accessories like phone cases, chargers, and more in our 'Hot Accessories' section.");
+      return;
+    }
+
+    // Payment-related questions
+    if (questionLower.includes("payment") || questionLower.includes("pay")) {
+      setAnswer("We offer secure payment options, including credit cards, debit cards, and PayPal. Simply choose your preferred payment method during checkout.");
+      return;
+    }
+
+    // Product reviews related questions
+    if (questionLower.includes("reviews") || questionLower.includes("review")) {
+      setAnswer("You can check out customer reviews for our products in the 'Product Reviews' section.");
+      return;
+    }
+
+    // Sign up / login related questions
+    if (questionLower.includes("login") || questionLower.includes("sign in")) {
       setAnswer("To log in to your account, click on the 'Login' button at the top-right of the page and enter your credentials.");
       return;
     }
 
-    if (question.toLowerCase().includes("sign up") || question.toLowerCase().includes("create account")) {
-      setAnswer("To sign up, click on the 'Sign Up' button on the homepage and fill in your details. Once completed, you can log in to your account.");
+    if (questionLower.includes("sign up") || questionLower.includes("create account")) {
+      setAnswer("To sign up, click on the 'Sign Up' button on the homepage and fill in your details.");
       return;
     }
 
-    if (question.toLowerCase().includes("buy") || question.toLowerCase().includes("purchase") || question.toLowerCase().includes("order")) {
-      setAnswer("To buy a product, browse through our catalog, select the item you want, click 'Add to Cart', and then proceed to checkout.");
+    // Purchase-related questions
+    if (questionLower.includes("buy") || questionLower.includes("purchase") || questionLower.includes("order")) {
+      setAnswer("To buy a product, select it from our catalog, click on 'Add to Cart', and proceed to checkout.");
       return;
     }
 
-    if (question.toLowerCase().includes("mobile") || question.toLowerCase().includes("phone")) {
-      setAnswer("To buy a mobile, visit the 'Mobile' section, select the model, and click 'Buy Now'. Then follow the instructions to complete the checkout process.");
-      return;
-    }
-
-    if (question.toLowerCase().includes("payment") || question.toLowerCase().includes("pay")) {
-      setAnswer("We accept multiple payment methods, including credit/debit cards, PayPal, and other secure payment gateways.");
-      return;
-    }
-
-    // Default response if the question doesn't match any predefined ones
-    setAnswer("I'm sorry, I can only help with website-related questions. Please ask about login, signup, purchasing, or payment.");
-    
-    // If you want to integrate a general AI response, you can use this section.
-    // Uncomment the following lines if you still want to query the Gemini API for other questions.
-    /*
-    try {
-      const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=YOUR_API_KEY", // Replace with actual API key
-        method: "post",
-        data: {
-          contents: [{ parts: [{ text: question }] }],
-        },
-      });
-
-      console.log(response.data); // Log the response to see the structure
-      setAnswer(response.data.candidates[0].content.parts[0].text);
-    } catch (error) {
-      console.error("Error generating answer:", error);
-      setAnswer("An error occurred.");
-    }
-    */
+    // Questions outside the website's scope
+    setAnswer("Sorry, I can only help with questions related to our products, services, and purchasing process. Please ask about laptops, mobiles, accessories, or other items available on our website.");
   };
 
   return (
@@ -94,7 +104,7 @@ function App() {
             onChange={(e) => setQuestion(e.target.value)}
             cols="30"
             rows="10"
-            placeholder="Ask anything to me"
+            placeholder="Ask anything about our website"
           ></textarea>
           <button onClick={generateAnswer}>Generate Answer</button>
           <pre>{answer}</pre>
@@ -187,7 +197,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
