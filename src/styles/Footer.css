@@ -1,7 +1,7 @@
 /* General footer styling */
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+  grid-template-columns: repeat(6, 1fr) 2fr;
   padding: 4.5vmax;
   background-color: rgb(37, 37, 37);
   color: rgb(197, 197, 197);
@@ -52,6 +52,7 @@
   color: rgb(37, 37, 37);
 }
 
+/* Footer border */
 .footerBorder {
   background-color: rgb(37, 37, 37);
   color: white;
@@ -71,7 +72,7 @@
 /* Tablets and smaller screens */
 @media (max-width: 1024px) {
   .footer {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     padding: 4vmax;
   }
 
@@ -97,7 +98,7 @@
 /* Mobile screens (small devices) */
 @media (max-width: 768px) {
   .footer {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     padding: 4vmax;
   }
 
