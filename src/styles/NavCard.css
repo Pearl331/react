@@ -1,15 +1,86 @@
-.NavCard{
-  width: 10vmax;
+/* Base styles for the NavCard */
+.NavCard {
+  width: 20%; /* Set the width to 20% to allow multiple cards per row */
   text-align: center;
   cursor: pointer;
-}
-.NavCard > img{
-  width: 10vmax;
-}
-.NavCard > p{
-  margin: 0;
+  padding: 1vmax;
+  box-sizing: border-box;
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
 }
 
-.NavCard > span{
+/* Image styling for responsive scaling */
+.NavCard > img {
+  width: 100%; /* Make image width 100% of the card width */
+  height: auto; /* Maintain the aspect ratio */
+  max-width: 10vmax; /* Limit the max-width for larger screens */
+  margin-bottom: 1vmax; /* Add some space below the image */
+}
+
+/* Styling for product name */
+.NavCard > p {
+  margin: 0.5vmax 0;
+  font-size: 1vmax;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Price styling */
+.NavCard > span {
   color: orangered;
+  font-size: 1.2vmax; /* Adjust the font size for price */
+  font-weight: bold;
+}
+
+/* Hover effect for the card */
+.NavCard:hover {
+  transform: scale(1.05); /* Slightly scale the card on hover */
+}
+
+/* Media Queries for different screen sizes */
+
+/* For screens up to 1024px (tablets) */
+@media (max-width: 1024px) {
+  .NavCard {
+    width: 30%; /* Adjust the card width to 30% */
+  }
+
+  .NavCard > p {
+    font-size: 1.1vmax; /* Slightly increase font size */
+  }
+
+  .NavCard > span {
+    font-size: 1.3vmax; /* Slightly increase price font size */
+  }
+}
+
+/* For screens up to 768px (smaller tablets or large phones) */
+@media (max-width: 768px) {
+  .NavCard {
+    width: 45%; /* Adjust the card width to 45% */
+    margin-bottom: 1.5vmax; /* Add spacing between cards */
+  }
+
+  .NavCard > p {
+    font-size: 1.3vmax; /* Increase the font size for name */
+  }
+
+  .NavCard > span {
+    font-size: 1.5vmax; /* Increase price font size */
+  }
+}
+
+/* For screens up to 480px (mobile phones) */
+@media (max-width: 480px) {
+  .NavCard {
+    width: 100%; /* Make the card take up full width */
+    margin-bottom: 2vmax; /* Add more space between cards */
+  }
+
+  .NavCard > p {
+    font-size: 1.4vmax; /* Increase the font size for name */
+  }
+
+  .NavCard > span {
+    font-size: 1.6vmax; /* Increase price font size */
+  }
 }
